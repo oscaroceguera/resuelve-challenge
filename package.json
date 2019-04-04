@@ -8,6 +8,7 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
+    "eslint": "eslint .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -15,6 +16,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "pre-commit": "eslint",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -30,6 +32,9 @@
     "@storybook/addon-links": "^5.0.6",
     "@storybook/addons": "^5.0.6",
     "@storybook/react": "^5.0.6",
-    "babel-loader": "^8.0.5"
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "pre-commit": "^1.2.2"
   }
 }
