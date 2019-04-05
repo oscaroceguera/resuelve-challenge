@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 
 const Card = ({ 
@@ -26,5 +27,9 @@ const Card = ({
     </div>
   </div>
 )
+
+Card.propTypes = {
+  data: PropTypes.object.isRequired
+}
 
 export default Card

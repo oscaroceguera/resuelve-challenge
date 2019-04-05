@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { deburr } from 'lodash/string'
 
 import styles from './styles.module.css'
@@ -107,9 +107,9 @@ AutoComplete.defaultProps = {
 }
 
 AutoComplete.propTypes = {
-  data: Proptypes.array.isRequired,
-  width: Proptypes.string,
-  placeholder: Proptypes.string,
+  data: PropTypes.array.isRequired,
+  width: PropTypes.string,
+  placeholder: PropTypes.string,
 }
 
 export default AutoComplete

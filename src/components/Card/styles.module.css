@@ -1,5 +1,5 @@
 @value colors: "../../stylesheets/ui-color-palette.css";
-@value deepPurple, grey, grey300, grey600, grey800 from colors;
+@value deepPurple, purple, grey, grey300, grey600, grey800 from colors;
 
 .container {
   box-shadow: 0px 0px 5px grey;
@@ -8,7 +8,7 @@
 }
 
 .title {
-  background: #ba68c8;
+  background: deepPurple;
   border-radius: 4px 4px 0px 0px;
   color: white;
   padding: .5em;
@@ -31,7 +31,7 @@
 .infoItemTitle {
   text-transform: uppercase;
   font-weight: bold;
-  color: #ba68c8;
+  color: purple;
 }
 
 .infoItemDesc {
