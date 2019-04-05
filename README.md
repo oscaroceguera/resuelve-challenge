@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+# Resuelve challenge - Autocompletado para Ghubli films API
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Corre la aplicación en mode development.
+Abre [http://localhost:3000](http://localhost:3000) para ver en el browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lanza el modo de prueba en modo watch.
+
+### `npm run storybook`
+
+Corre storybook el cual es una herramienta para desarrollar UI de componentes.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`.<br>
+La compilación minifica e incluyen hashes a los nombres de archivos. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Problema y solución
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Hacer una busqueda de película usando autocompletado. Para esto decidí recrear un componente `Autocomplete` que tiene la funcionalidad del autocompletado de las películas disponibles en el **API**. Al Cargarse el componente obtengo la lista de todas las películas para listarlas y de ahi tomo los títulos disponibles para almacenarlos en un array de títulos disponibles los cuales usare en el diccionario para el autocompletado.
 
-### `npm run eject`
+## Arquitectura
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+La arquitectura elegida fue la de manejar el state interno de los componentes ya que creo que no es necesario usar algo mas complejo como `redux`, `redux-sagas`, `redux-observable`, etc.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para esta aplicación se uso:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* CRA
+* React
+* Storybook
+* Css-modules
+* Eslint
+* Precommit
+* Jest
+* Enzyme
+* Netlify
 
-## Learn More
+## Trade-offs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Me gustaría pulir mas el componente `Autocomplete`, hacer testing mas robusto y configurar las variables de entorno como la dirección del API no cambio no lo vi necesario.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Parte de código que me siente orgulloso
 
-### Code Splitting
+https://github.com/oscaroceguera/resuelve-challenge/blob/master/src/components/Autocomplete/index.js
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Codigo en produccción usando netlify
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Abre [resuelve_challenge](https://quirky-jepsen-ccd4ac.netlify.com/) para ver la aplicación en producción en el browser.
