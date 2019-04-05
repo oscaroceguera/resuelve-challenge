@@ -7,7 +7,7 @@ import Card from '../src/components/Card'
 const DATA = {
   'id': '67405111-37a5-438f-81cc-4666af60c800',
   'title': 'The Wind Rises',
-  'description': 'A lifelong love of flight inspires Japanese aviation...',
+  'description': 'The son of a sailor,5-year old. One fateful day',
   'director': 'Hayao Miyazaki',
   'producer': 'Toshio Suzuki',
   'release_date': '2013',

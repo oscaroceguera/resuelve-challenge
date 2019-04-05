@@ -8,7 +8,7 @@ const Card = ({
   <div className={styles.container}>
     <h1 className={styles.title}>{title}</h1>
     <div className={styles.info}>
-      <div>
+      <div className={styles.infoItem}>
         <p className={styles.infoItemTitle}>description</p>
         <p className={styles.infoItemDesc}>{description}</p>
       </div>

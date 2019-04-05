@@ -5,6 +5,7 @@
   box-shadow: 0px 0px 5px grey;
   width: 350px;
   border-radius: 4px;
+  margin: 1em 0;
 }
 
 .title {
@@ -13,10 +14,17 @@
   color: white;
   padding: .5em;
   margin: 0;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .info {
   padding: 1em;
+}
+
+.infoItem {
+  height: 360px;
 }
 
 .infoItemFlex {

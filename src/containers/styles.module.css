@@ -1,0 +1,20 @@
+.header {
+  text-align: center;
+  background: #2C3B73;
+  color: white;
+  padding: 1em;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 2em;
+}
+
+.films {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 1em;
+}
