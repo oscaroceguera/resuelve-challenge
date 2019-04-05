@@ -41,5 +41,6 @@ stories
       placeholder={text('Placeholder', 'Film')}
       width={select(label, options, defaultValue)}
       required={boolean('Required', false)}
+      handleItemSelected={f => f}
     />
   ))

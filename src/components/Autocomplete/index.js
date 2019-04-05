@@ -42,16 +42,28 @@ class AutoComplete extends Component {
     })
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.data === prevState.data) {
+      return null
+    }
+
+    return { data: nextProps.data }
+  }
+
   onSelectedItem = (e) => {
     e && e.preventDefault()
     const { itemId, itemValue } = e.target.dataset
+    const valueSelected = {
+      id: itemId,
+      value: itemValue
+    }
+
     this.setState({
-      valueSelected: {
-        id: itemId,
-        value: itemValue
-      },
+      valueSelected,
       dataSource: baseState.dataSource
     })
+
+    this.props.handleItemSelected(valueSelected)
   }
 
   componentWillUnmount() {
@@ -79,6 +91,7 @@ class AutoComplete extends Component {
           type='text'
           value={valueSelected.value}
           onChange={this.onChange}
+          onKeyPress={this.props.onKeyPress}
         />
         {dataSource.length > 0 && (
           <ul className={styles.AutoCompleteListContainer}>
@@ -110,6 +123,8 @@ AutoComplete.propTypes = {
   data: PropTypes.array.isRequired,
   width: PropTypes.string,
   placeholder: PropTypes.string,
+  handleItemSelected: PropTypes.func.isRequired,
+  onKeyPress: PropTypes.func
 }
 
 export default AutoComplete

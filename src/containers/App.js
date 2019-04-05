@@ -7,27 +7,37 @@ import SearchBtn from '../components/SearchBtn'
 
 import styles from './styles.module.css'
 
+const URL = 'https://ghibliapi.herokuapp.com/films'
+
 const initialState = {
   loading: false,
   error: null,
   films: [],
+  filmsTitles: [],
+  filmToSearch: {}
 }
 class App extends Component {
   state = initialState
 
   async componentDidMount () {
+    this.load()
+  }
+
+  async load () {
     this.setState({
       loading: true,
       error: null
     })
 
     try {
-
-      const response = await fetch('https://ghibliapi.herokuapp.com/films')
+      const response = await fetch(URL)
       const films = await response.json()
+
+      const filmsTitles = films.map(item => ({ id: item.id, desc: item.title }))
 
       this.setState({
         loading: false,
+        filmsTitles,
         films
       })
     } catch (error) {
@@ -38,9 +48,55 @@ class App extends Component {
     }
   }
 
+  handleItemSelected = filmToSearch => {
+    this.setState({
+      filmToSearch
+    })
+  }
+
+  handleKeypress = e => {
+    if (e.key === 'Enter') {
+      this.handleSearchFilm(e)
+    }
+  }
+ 
+  handleSearchFilm = async (e) => {
+    e && e.preventDefault()
+
+    this.setState({
+      loading: true,
+      error: null
+    })
+
+    try {
+      const { id } = this.state.filmToSearch
+  
+      if (!id) {
+        return this.load()
+      }
+
+      const response = await fetch(`${URL}/${id}`)
+      const films = await response.json()
+
+      this.setState({
+        loading: false,
+        films: [films],
+        filmToSearch: {}
+      })
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error
+      })
+    }
+  }
+
+  componentWillUnmount () {
+    this.setState(initialState)
+  }
 
   render () {
-    const {loading, error, films} = this.state
+    const { loading, error, films, filmsTitles } = this.state
 
     return (
       <div>
@@ -49,10 +105,14 @@ class App extends Component {
         </header>
         <div className={styles.searchBar}>
           <Autocomplete
+            data={filmsTitles}
             placeholder='Film'
             width='Large'
+            required={false}
+            handleItemSelected={this.handleItemSelected}
+            onKeyPress={this.handleKeypress}
           />
-          <SearchBtn />
+          <SearchBtn onClick={this.handleSearchFilm} />
         </div>
         <div className={styles.films}>
           {loading && (

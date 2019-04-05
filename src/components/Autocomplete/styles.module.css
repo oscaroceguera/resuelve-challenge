@@ -45,6 +45,7 @@
   list-style: none;
   background: white;
   color: grey800;
+  position: absolute;
 }
 
 .AutoCompleteListItem {

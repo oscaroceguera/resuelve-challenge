@@ -9,5 +9,5 @@ const stories = storiesOf('Buttons', module) // eslint-disable-line
 
 stories
   .add('SeachBtn', () => (
-    <SearchBtn />
+    <SearchBtn onClick={f => f} />
   ))
